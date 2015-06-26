@@ -23,7 +23,7 @@ app.get('/', function *() {
     this.type = 'text/html';
 });
 
-app.get('/api/suggest', function *() {
+app.get('/api/suggest', function *(next) {
     var maxSuggestions = 6;
 
     this.status = 200;
@@ -57,7 +57,7 @@ app.get('/api/suggest', function *() {
                 }
             });
         }
-        //yield next;
+        yield next;
     }
 });
 
